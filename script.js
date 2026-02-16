@@ -128,7 +128,7 @@ async function loadProjects() {
             const projectHTML = `
                 <div onclick="window.location.href='projek.html?id=${project.id}'" 
                     class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hover:shadow-xl transition-all"
-                    style="background-image: url('${bgImage}');">
+                    style="background-image: url('.${bgImage}');">
                     
                     <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 shadow-md">
                         <div class="overflow-hidden pr-2">
