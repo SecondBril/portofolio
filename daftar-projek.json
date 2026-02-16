@@ -6,7 +6,7 @@
     "stack": ["HTML", "Bootstrap", "CSS", "PHP", "MySQL"],
     "date": "Jan 24 - Juli 24",
     "description": "Proyek ini dibuat saat saya semester 2 dengan tujuan untuk membuat sistem yang dapat membantu UMKM Toko Kue dalam hal pencatatan, penjualan, dan pengelolaan kue melalui sistem yang telah dibuat.",
-    "image": ["/assets/work-1.png","/assets/work-2.png","/assets/work-3.png","/assets/work-4.png"]
+    "image": ["portofolio/assets/work-1.png","portofolio/assets/work-2.png","portofolio/assets/work-3.png","portofolio/assets/work-4.png"]
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "stack": ["HTML", "Bootstrap", "CSS", "PHP", "MySQL", "Laravel"],
     "date": "Aug 24 - Des 24",
     "description": "Proyek ini dilaksanakan saat semester 3 melalui program Pengabdian Kepada Masyarakat untuk petani tembakau di Kabupaten Subang, dan saya bertanggung jawab pada pengembangan sistem informasinya.",
-    "image": ["/assets/work-1.png","/assets/work-2.png","/assets/work-3.png","/assets/work-4.png"]
+    "image": ["portofolio/assets/work-1.png","portofolio/assets/work-2.png","portofolio/assets/work-3.png","portofolio/assets/work-4.png"]
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "stack": ["HTML", "Bootstrap", "CSS", "PHP", "MySQL", "Laravel"],
     "date": "Aug 24 - Des 24",
     "description": "Proyek ini dilaksanakan saat semester 3 melalui program Pengabdian Kepada Masyarakat untuk petani tembakau di Kabupaten Subang, dan saya bertanggung jawab pada pengembangan sistem informasinya.",
-    "image": ["/assets/work-1.png","/assets/work-2.png","/assets/work-3.png","/assets/work-4.png"]
+    "image": ["portofolio/assets/work-1.png","portofolio/assets/work-2.png","portofolio/assets/work-3.png","portofolio/assets/work-4.png"]
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "stack": ["Tailwind", "Node.js", "React.TSX", "MySQL"],
     "date": "Aug 25 - Des 25",
     "description": "Proyek ini dilaksanakan saat semester 5 dengan mitra pemadam kebakaran kabupaten subang, menawarkan sistem pelaporan cepat bagi pengguna dan manajemen laporan serta history kebakaran yang optimal.",
-    "image": ["/assets/work-1.png","/assets/work-2.png","/assets/work-3.png","/assets/work-4.png"]
+    "image": ["portofolio/assets/work-1.png","portofolio/assets/work-2.png","portofolio/assets/work-3.png","portofolio/assets/work-4.png"]
   },
   {
     "id": 5,
@@ -42,6 +42,6 @@
     "stack": ["Flutter"],
     "date": "Aug 25 - Des 25",
     "description": "Proyek ini dilaksanakan saat semester 5 dengan mitra pemadam kebakaran kabupaten subang, membuat sebuah aplikasi dengan flutter untuk manajemen laporan kebakaran bagi para petugas pemadam kebakaran.",
-    "image": ["/assets/work-1.png","/assets/work-2.png","/assets/work-3.png","/assets/work-4.png"]
+    "image": ["portofolio/assets/work-1.png","portofolio/assets/work-2.png","portofolio/assets/work-3.png","portofolio/assets/work-4.png"]
   }
 ]
