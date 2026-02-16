@@ -1,0 +1,94 @@
+
+@font-face {
+  font-display: block;
+  font-family: Mori;
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://assets.codepen.io/16327/PPMori-Regular.woff) format("woff");
+}
+/* --- Desktop / Default Styles --- */
+.text-scramble__content {
+  /* Default Desktop: max-width 40 karakter agar nyaman dibaca */
+  max-width: 40ch; 
+  /* Font size fluid: Minimal 2rem, Maksimal 3rem */
+  font-size: clamp(2rem, 5.5vw + 0.5rem, 3.5rem); 
+  font-weight: 600;
+  letter-spacing: -0.02em; /* Sedikit dirapatkan agar headline terlihat solid */
+  line-height: 1.1;
+  margin-top: clamp(2rem, 4vw, 4rem);
+  padding-bottom: 1.1em;
+  position: relative;
+  text-align: left;
+}
+
+.text-scramble__text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+  align-items: baseline; /* Menjaga teks dan kursor sejajar di garis bawah */
+  margin: 0;
+}
+
+.text-scramble__text span {
+  word-break: break-word; /* Mencegah teks keluar container */
+  white-space: pre-wrap;  /* Menjaga spasi natural */
+}
+
+.text-scramble__text img {
+  display: inline-block;
+  height: 0.85em; /* Sedikit dikecilkan agar proporsional dengan huruf kecil */
+  width: auto;
+  margin-left: 0.1em;
+  transform: translateY(0.1em); /* Koreksi posisi vertikal kursor halus */
+}
+
+/* --- Tablet Adjustment (Max-width 1024px) --- */
+@media (max-width: 1024px) {
+  .text-scramble__content {
+    max-width: 90%; /* Gunakan persentase agar tidak terlalu sempit di tablet portrait */
+    font-size: clamp(2rem, 5vw, 3rem); /* Sedikit penyesuaian skala */
+  }
+}
+
+/* --- Mobile Adjustment (Max-width 640px) --- */
+@media (max-width: 640px) {
+  .text-scramble__content {
+    /* Full width di HP agar teks punya ruang maksimal */
+    max-width: 100%;
+    margin-left: 10px;
+    margin-right: 10px; 
+    
+    /* Perkecil font agar kata panjang tidak sering turun baris (wrapping) */
+    font-size: clamp(1.75rem, 6vw, 2.25rem); 
+    
+    /* Longgarkan line-height sedikit untuk keterbacaan di layar kecil */
+    line-height: 1.25; 
+    
+    /* Kurangi margin atas agar header tidak memakan setengah layar HP */
+    margin-top: 1.5rem; 
+  }
+
+  .text-scramble__text img {
+    height: 0.8em; /* Sesuaikan ukuran kursor di layar kecil */
+  }
+}
+
+/* Container Utama */
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Default: 1 Kolom (Tampilan HP) */
+  gap: 1.25rem; /* Setara gap-5 (20px) */
+  width: 100%;
+}
+
+/* Media Query untuk Tablet/Desktop (Min-width 768px) */
+@media (min-width: 768px) {
+  .project-container {
+    grid-template-columns: repeat(3, 1fr); /* Menjadi 3 Kolom */
+  }
+}

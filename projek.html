@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./input.css">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <style>
+/* --- Main Layout --- */
+.project-main {
+    max-width: 60rem; /* max-w-4xl */
+    margin: 0 auto;
+    padding: 8rem 1.5rem 5rem; /* pt-32 pb-20 px-6 */
+}
+
+/* --- Back Button --- */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--text-color);
+}
+
+/* --- Project Header --- */
+.meta-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Ovo', serif;
+    font-size: 0.875rem; /* text-sm */
+    color: var(--text-muted);
+}
+
+.tag-date {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+}
+
+.tag-role {
+    padding: 0.25rem 0.75rem;
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+.project-title {
+    font-family: 'Ovo', serif;
+    font-size: 2.25rem; /* text-3xl */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .project-title { font-size: 3rem; } /* text-5xl md */
+}
+
+/* --- Hero Image --- */
+.hero-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--border-color);
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Grid Layout (Content) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: 2fr 1fr; /* 2/3 konten, 1/3 sidebar */
+    }
+}
+
+/* Typography */
+.section-title {
+    font-family: 'Ovo', serif;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    color: var(--text-muted);
+    font-size: 1.125rem; /* text-lg */
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.75;
+}
+
+/* Sidebar Box */
+.tech-stack-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.tech-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem; /* text-sm */
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* --- Gallery --- */
+.gallery-section {
+    margin-top: 4rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.gallery-img {
+    width: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.02);
+}
+
+/* --- Footer --- */
+.footer {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* --- Animation --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+    </style>
+</head>
+
+<body class="font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+        <img src="./assets/header-bg-color.png" alt="" class="w-full" />
+    </div>
+
+    <nav id="navbar" class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+        <p class="bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20 sr-only">
+            Hidden</p>
+        <a href="#!">
+            <img src="./assets/logo.png" alt="Logo" class="w-28 cursor-pointer mr-14 dark:hidden" />
+            <img src="./assets/logo_dark.png" alt="Logo" class="w-28 cursor-pointer mr-14 hidden dark:block" />
+        </a>
+
+        <ul id="navLink"
+            class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
+            <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition' href="index.html#top">Home</a></li>
+            <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition' href="index.html#about">About me</a></li>
+            <!-- <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#services">Services</a></li> -->
+            <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition' href="index.html#work">My Work</a></li>
+            <!-- <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#contact">Contact me</a></li> -->
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()">
+                <img src="./assets/moon_icon.png" alt="" class="w-5 dark:hidden" />
+                <img src="./assets/sun_icon.png" alt="" class="w-5 hidden dark:block" />
+            </button>
+
+            <a href="#contact"
+                class="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
+                Contact
+                <img src="./assets/arrow-icon.png" alt="" class="w-3 dark:hidden" />
+                <img src="./assets/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block" />
+            </a>
+
+            <button class="block md:hidden ml-3" onclick="openMenu()">
+                <img src="./assets/menu-black.png" alt="" class="w-6 dark:hidden" />
+                <img src="./assets/menu-white.png" alt="" class="w-6 hidden dark:block" />
+            </button>
+
+        </div>
+        <!-- ----- mobile menu ------ -->
+        <ul id="mobileMenu"
+            class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+
+            <div class="absolute right-6 top-6" onclick="closeMenu()">
+                <img src="./assets/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden" />
+                <img src="./assets/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block" />
+            </div>
+
+            <li><a href="index.html#top" onclick="closeMenu()">Home</a></li>
+            <li><a href="index.html#about" onclick="closeMenu()">About me</a></li>
+            <!-- <li><a href="#services" onclick="closeMenu()">Services</a></li> -->
+            <li><a href="index.html#work" onclick="closeMenu()">My Work</a></li>
+            <!-- <li><a href="#contact" onclick="closeMenu()">Contact me</a></li> -->
+        </ul>
+    </nav>
+
+
+    <main class="project-main">
+        
+        <a href="index.html#work" class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.25rem; height: 1.25rem;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            Back to Portfolio
+        </a>
+
+        <div id="project-detail-content" class="animate-fadeIn">
+            <p style="text-align: center; color: var(--text-muted);">Loading project details...</p>
+        </div>
+
+    </main>
+
+    <div class="mt-20">
+        <div class="text-center">
+            <a href="#!">
+                <img src="./assets/logo.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
+                <img src="./assets/logo_dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block">
+            </a>
+            <div class="w-max flex items-center gap-2 mx-auto">
+                <img src="./assets/mail_icon.png" alt="" class="w-5 dark:hidden">
+                <img src="./assets/mail_icon_dark.png" alt="" class="w-5 hidden dark:block">
+                <a href="#!">contact@prebuiltui.com</a>
+            </div>
+        </div>
+        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-3">
+            <p>© 2025 <a href="https://prebuiltui.com/" target="_blank">PrebuiltUI</a>. All rights reserved. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p> 
+            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+                <li><a target="_blank" href="#!">GitHub</a></li>
+                <li><a target="_blank" href="#!">LinkedIn</a></li>
+                <li><a target="_blank" href="#!">Twitter</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = parseInt(urlParams.get('id'));
+            const contentDiv = document.getElementById('project-detail-content');
+
+            if (!projectId) {
+                contentDiv.innerHTML = '<p style="text-align: center; color: red;">Project ID not found.</p>';
+                return;
+            }
+
+            try {
+                // Fetch JSON
+                const response = await fetch('./daftar-projek.json'); 
+                const projects = await response.json();
+                const project = projects.find(p => p.id === projectId);
+
+                if (!project) {
+                    contentDiv.innerHTML = '<p style="text-align: center; color: red;">Project data not found.</p>';
+                    return;
+                }
+
+                // --- RENDER HTML DENGAN CSS CLASS BARU ---
+                contentDiv.innerHTML = `
+                    <div class="meta-wrapper">
+                        <div class="meta-tags">
+                            <span class="tag-date">${project.date}</span>
+                            <span class="tag-role">${project.role}</span>
+                        </div>
+                        <h1 class="project-title">${project.title}</h1>
+                    </div>
+
+                    <div class="hero-image-container">
+                        <img src="${project.image[0]}" alt="${project.title}">
+                    </div>
+
+                    <div class="project-grid">
+                        <div>
+                            <h3 class="section-title">Project Overview</h3>
+                            <p class="project-description">${project.description}</p>
+                        </div>
+
+                        <div>
+                            <div class="tech-stack-box">
+                                <h3 class="section-title">Technologies Used</h3>
+                                <div class="tech-tags-container">
+                                    ${project.stack.map(tech => 
+                                        `<span class="tech-tag">${tech}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${project.image.length > 1 ? `
+                        <div class="gallery-section">
+                            <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Project Gallery</h3>
+                            <div class="gallery-grid">
+                                ${project.image.slice(1).map(img => 
+                                    `<img src="${img}" class="gallery-img">`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                `;
+
+            } catch (error) {
+                console.error(error);
+                contentDiv.innerHTML = '<p style="text-align: center; color: red;">Failed to load project details.</p>';
+            }
+        });
+    </script>
+
+</body>
+</html>
