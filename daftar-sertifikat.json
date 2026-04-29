@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "type": "cert",
+    "title": "Juara 3 Pemilihan Mahasiswa Berprestasi Tahun 2024",
+    "issuer": "Politeknik Negeri Subang",
+    "date": "2024",
+    "pdf": "./assets/certs/sertifikasi juara 3 mapres polsub.pdf"
+  },
+  {
+    "id": 2,
+    "type": "cert",
+    "title": "Sertifikat Kompetensi Junior Web Development",
+    "issuer": "LSP TIK - BNSP",
+    "date": "2025",
+    "pdf": "./assets/certs/sertifikat web developer.pdf"
+  },
+  {
+    "id": 3,
+    "type": "hki",
+    "title": "HKI Buku Manual Aplikas Mobile Sistem Informasi Tanggap Bencana Berbasis Masyarakat Terpadu:SIGANAS MADU",
+    "issuer": "Kementerian Hukum",
+    "date": "EC002025192755, 26 November 2025",
+    "pdf": "./assets/certs/sertifikat_2025-11-25 Aplikasi Mobile (1).pdf"
+  },
+  {
+    "id": 4,
+    "type": "hki",
+    "title": "HKI Buku Manual Aplikas Website Sistem Informasi Tanggap Bencana Berbasis Masyarakat Terpadu:SIGANAS MADU",
+    "issuer": "Kementerian Hukum",
+    "date": "EC002025191541, 25 November 2025",
+    "pdf": "./assets/certs/sertifikat_2025-11-25 Aplikasi Website (1).pdf"
+  },
+  {
+    "id": 5,
+    "type": "hki",
+    "title": "HKI Manual Book Sistem Informasi Pemasaran Tembakau",
+    "issuer": "Kementerian Hukum",
+    "date": "EC002024228060, 18 November 2024",
+    "pdf": "./assets/certs/sertifikat_EC002024228060.pdf"
+  },
+  {
+    "id": 6,
+    "type": "hki",
+    "title": "Sistem Informasi Pengelolaan Lahan Tembakau Berbasis Android",
+    "issuer": "Kementerian Hukum",
+    "date": "EC002024259227, 23 Desember 2024",
+    "pdf": "./assets/certs/sertifikat_EC002024259227.pdf"
+  },
+  {
+    "id": 7,
+    "type": "hki",
+    "title": "HKI Buku User Manual Sistem Smart Fish Feeder Berbasis Website",
+    "issuer": "Kementerian Hukum",
+    "date": "EC002025163004, 24 Oktober 2025",
+    "pdf": "./assets/certs/SuratCiptaan_EC002025163004_2.pdf"
+  }
+]

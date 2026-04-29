@@ -32,6 +32,7 @@
   justify-content: flex-start; 
   align-items: baseline; /* Menjaga teks dan kursor sejajar di garis bawah */
   margin: 0;
+  white-space: pre-wrap;
 }
 
 .text-scramble__text span {
@@ -60,8 +61,9 @@
   .text-scramble__content {
     /* Full width di HP agar teks punya ruang maksimal */
     max-width: 100%;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px; 
+    margin-bottom: 20px;
     
     /* Perkecil font agar kata panjang tidak sering turun baris (wrapping) */
     font-size: clamp(1.75rem, 6vw, 2.25rem); 
@@ -70,7 +72,7 @@
     line-height: 1.25; 
     
     /* Kurangi margin atas agar header tidak memakan setengah layar HP */
-    margin-top: 1.5rem; 
+    margin-top: 0rem; 
   }
 
   .text-scramble__text img {
@@ -86,9 +88,476 @@
   width: 100%;
 }
 
+
 /* Media Query untuk Tablet/Desktop (Min-width 768px) */
 @media (min-width: 768px) {
   .project-container {
+    grid-template-columns: repeat(2, 1fr); /* Menjadi 3 Kolom */
+  }
+
+  .text-scramble__content {
+    /* Full width di HP agar teks punya ruang maksimal */
+    max-width: 100%;
+    margin-left: 40px;
+    margin-right: 10px; 
+    margin-bottom: 20px;
+    
+    /* Perkecil font agar kata panjang tidak sering turun baris (wrapping) */
+    font-size: clamp(1.75rem, 6vw, 2.25rem); 
+    
+    /* Longgarkan line-height sedikit untuk keterbacaan di layar kecil */
+    line-height: 1.25; 
+    
+    /* Kurangi margin atas agar header tidak memakan setengah layar HP */
+    margin-top: 0rem; 
+  }
+}
+
+/* ===== CERTIFICATE SECTION ===== */
+.cert-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s, box-shadow 0.3s;
+  background: white;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* ===== CERT GRID — 1 kolom mobile, 2 tablet, 3 desktop ===== */
+#cert-grid {
+  grid-template-columns: 1fr;                    /* mobile default */
+}
+
+@media (min-width: 640px) {
+  #cert-grid {
+    grid-template-columns: repeat(2, 1fr);        /* tablet portrait */
+  }
+}
+
+@media (min-width: 1024px) {
+  #cert-grid {
+    grid-template-columns: repeat(3, 1fr);        /* desktop & tablet landscape */
+  }
+  .project-container {
     grid-template-columns: repeat(3, 1fr); /* Menjadi 3 Kolom */
   }
+}
+
+/* ===== TOOL ICONS ===== */
+.tool-icon-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;        /* w-12 */
+  aspect-ratio: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.tool-icon-item:hover {
+  transform: translateY(-4px);
+  border-color: #b820e6;
+  box-shadow: 0 6px 20px rgba(184, 32, 230, 0.15);
+}
+
+.dark .tool-icon-item {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .tool-icon-item:hover {
+  border-color: #b820e6;
+}
+
+/* Paksa ikon devicon ikut dark mode — beberapa ikon pakai warna gelap */
+.dark .tool-icon-item i.colored {
+  filter: brightness(1.2);
+}
+
+@media (min-width: 640px) {
+  .tool-icon-item {
+    width: 3.5rem;    /* w-14 */
+  }
+}
+
+.dark .cert-card {
+  background: #1a1a2e;
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Animasi masuk saat scroll */
+.cert-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  border-color: #b820e6;
+  box-shadow: 0 12px 40px rgba(184, 32, 230, 0.15);
+}
+
+.cert-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #f3f4f6;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .cert-img-wrapper {
+  background: #2a2a3e;
+}
+
+.cert-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(184,32,230,0.06), rgba(218,125,32,0.06));
+}
+
+.cert-type-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hki-badge {
+  background: rgba(184, 32, 230, 0.12);
+  color: #b820e6;
+}
+
+.cert-badge-style {
+  background: rgba(218, 125, 32, 0.12);
+  color: #da7d20;
+}
+
+.cert-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(184, 32, 230, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cert-card:hover .cert-hover-overlay {
+  opacity: 1;
+}
+
+.cert-zoom-btn {
+  background: white;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.cert-body {
+  padding: 14px 16px 16px;
+}
+
+.cert-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #111827;
+  /* Batasi 2 baris */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.dark .cert-title { color: white; }
+
+.cert-issuer {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+  /* Batasi 1 baris */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-date {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* Filter button active state */
+.cert-filter-btn.active {
+  background: linear-gradient(135deg, #b820e6, #da7d20);
+  color: white !important;
+  border-color: transparent !important;
+}
+
+/* ===== PDF PREVIEW CANVAS ===== */
+.cert-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #f3f4f6;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-preview-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; /* Tampil setelah render selesai */
+}
+
+.cert-pdf-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Spinner animasi */
+.pdf-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #b820e6;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.pdf-spinner.large {
+  width: 44px;
+  height: 44px;
+  border-width: 4px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== PDF VIEWER MODAL ===== */
+.pdf-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeInOverlay 0.25s ease;
+}
+
+.pdf-modal-overlay.open {
+  display: flex;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pdf-modal-box {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUpModal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.dark .pdf-modal-box {
+  background: #1a1a2e;
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(40px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dark .pdf-modal-header {
+  border-color: rgba(255,255,255,0.1);
+}
+
+.pdf-modal-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+  margin: 0;
+}
+
+.dark .pdf-modal-title { color: white; }
+
+.pdf-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdf-nav-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.pdf-nav-btn:hover { background: #f3f4f6; }
+.pdf-nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.dark .pdf-nav-btn { border-color: rgba(255,255,255,0.15); color: white; }
+.dark .pdf-nav-btn:hover { background: rgba(255,255,255,0.08); }
+
+.pdf-page-info {
+  font-size: 13px;
+  color: #6b7280;
+  min-width: 48px;
+  text-align: center;
+}
+
+.pdf-action-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #b820e6, #da7d20);
+  color: white;
+  border-color: transparent;
+}
+
+.download-btn:hover { opacity: 0.88; }
+
+.close-btn {
+  background: transparent;
+  color: #374151;
+}
+
+.close-btn:hover { background: #fee2e2; color: #dc2626; border-color: #fca5a5; }
+.dark .close-btn { color: white; }
+
+.pdf-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  background: #f8f7f5;
+  min-height: 300px;
+}
+
+.dark .pdf-modal-body { background: #111; }
+
+.pdf-loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
+
+.pdf-viewer-canvas {
+  display: none;
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .pdf-modal-title { max-width: 140px; font-size: 13px; }
+  .pdf-action-btn { padding: 5px 10px; font-size: 11px; }
+  .pdf-modal-header { padding: 10px 14px; }
+  .pdf-modal-body { padding: 12px; }
+}
+
+/* Skeleton loader kartu sertifikat */
+.cert-skeleton {
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  aspect-ratio: 3 / 4;
+}
+
+.dark .cert-skeleton {
+  background: linear-gradient(90deg, #1e1e2e 25%, #2a2a3e 50%, #1e1e2e 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
